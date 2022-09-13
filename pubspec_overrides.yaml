@@ -1,0 +1,5 @@
+dependency_overrides:
+  jaspr:
+    path: packages/jaspr
+  jaspr_builder:
+    path: packages/jaspr_builder

@@ -1,0 +1,34 @@
+builders:
+  jaspr_builder:entrypoint:
+    import: "package:jaspr_builder/builder.dart"
+    builder_factories: [ "buildEntrypoint" ]
+    build_extensions: { "^lib/{{file}}.dart": [ "lib/{{file}}.g.dart", "web/{{file}}.islands.dart" ] }
+    auto_apply: dependents
+    build_to: source
+    runs_before:
+      - build_web_compilers
+    defaults:
+      generate_for:
+        - lib/main.dart
+  jaspr_builder:apps:
+    import: "package:jaspr_builder/builder.dart"
+    builder_factories: [ "buildApps" ]
+    build_extensions: { "^lib/{{file}}.dart": [ "web/{{file}}.g.dart" ] }
+    auto_apply: dependents
+    build_to: source
+    runs_before:
+      - build_web_compilers
+  jaspr_builder:web_mock:
+    import: "package:jaspr_builder/builder.dart"
+    builder_factories: [ "buildWebMock" ]
+    build_extensions: { ".web.dart": [ ".stub.dart", ".dart" ] }
+    auto_apply: dependents
+    build_to: source
+    runs_before:
+      - build_web_compilers
+targets:
+  $default:
+    builders:
+      jaspr_builder:
+        generate_for:
+          - test/native_interfaces.web.dart
