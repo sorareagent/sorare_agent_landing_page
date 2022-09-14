@@ -83,7 +83,7 @@ class NavbarItem extends StatelessComponent {
       yield DomComponent(
         tag: 'a',
         classes: ['navbar-item'],
-        attributes: {if (href != null) 'href': ''},
+        attributes: {if (href != null) 'href': 'https://google.com'},
         child: child,
       );
     } else {

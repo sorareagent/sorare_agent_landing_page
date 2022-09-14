@@ -163,7 +163,7 @@ A simple component test looks like this:
 ```dart
 import 'package:jaspr_test/jaspr_test.dart';
 
-import 'app.dart';
+import 'app_bulma.dart';
 
 void main() {
   group('simple component test', () {

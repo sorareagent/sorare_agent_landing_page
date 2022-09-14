@@ -4,7 +4,7 @@
 // browser-specific jaspr import
 import 'package:jaspr/browser.dart';
 
-import 'package:{{name}}/app.dart';
+import 'package:{{name}}/app_bulma.dart';
 
 void main() {
   // attaches the [App] component to the <body> of the page

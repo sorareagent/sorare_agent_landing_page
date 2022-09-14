@@ -3,7 +3,7 @@
 // server-specific import, exposes [Document]
 import 'package:jaspr/server.dart';
 
-import 'components/app.dart';
+import 'components/app_bulma.dart';
 
 void main() {
   // runs the server and serves the provided component
@@ -25,31 +25,37 @@ class MyDocument extends StatelessComponent {
     yield Document.islands(
       title: 'Sorare Agent',
       styles: [
-        StyleRule.import('https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css'),
-        StyleRule.import('https://fonts.googleapis.com/css?family=Roboto'),
+        StyleRule.import(
+          'https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css',
+        ),
+        StyleRule.import(
+          'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css',
+        ),
         StyleRule(
           selector: const Selector.list([
             Selector.tag('html'),
             Selector.tag('body'),
           ]),
-          styles: Styles.combine([
-            const Styles.text(
-              fontFamily: FontFamily.list([
-                FontFamily('Roboto'),
-                FontFamilies.sansSerif,
-              ]),
-            ),
-            Styles.box(
-              width: 100.percent,
-              height: 100.percent,
-              margin: EdgeInsets.zero,
-              padding: EdgeInsets.zero,
-            ),
+          styles: Styles.raw({
+            'display': 'flex',
+            'flex-flow': 'column',
+            'justify-content': 'center',
+            'align-items': 'center',
+            'height': '100%',
+            'font-family': 'sans-serif',
+          }),
+        ),
+        StyleRule(
+          selector: const Selector.list([
+            Selector.tag('body'),
           ]),
+          styles: Styles.raw({
+            'padding': '16px',
+          }),
         ),
       ],
       // renders the [App] component inside the <body>
-      body: App(),
+      body: AppBulma(),
     );
   }
 }
