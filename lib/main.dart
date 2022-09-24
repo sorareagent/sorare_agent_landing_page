@@ -2,8 +2,7 @@
 
 // server-specific import, exposes [Document]
 import 'package:jaspr/server.dart';
-
-import 'components/app_bulma.dart';
+import 'package:sorare_agent_landing_page/components/app.dart';
 
 void main() {
   // runs the server and serves the provided component
@@ -31,17 +30,20 @@ class MyDocument extends StatelessComponent {
         StyleRule.import(
           'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css',
         ),
+        StyleRule.import('https://fonts.googleapis.com/css2?family=Homenaje'),
         StyleRule(
           selector: const Selector.list([
             Selector.tag('html'),
             Selector.tag('body'),
           ]),
           styles: Styles.raw({
+            'background-color':'#373e47',
+            'color':'#fafafa',
             'display': 'flex',
             'flex-flow': 'column',
             'justify-content': 'center',
             'align-items': 'center',
-            'height': '100%',
+            'height': '70%',
             'font-family': 'sans-serif',
           }),
         ),
@@ -55,7 +57,7 @@ class MyDocument extends StatelessComponent {
         ),
       ],
       // renders the [App] component inside the <body>
-      body: AppBulma(),
+      body: App(),
     );
   }
 }
