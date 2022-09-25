@@ -21,7 +21,7 @@ class MyDocument extends StatelessComponent {
     // - only specified **Island** components will be compiled as part of the javascript bundle and
     //   hydrated on the client
     // - all client-side code will be auto-generated inside the /web directory
-    yield Document.islands(
+    yield Document.app(
       title: 'Sorare Agent',
       styles: [
         StyleRule.import(

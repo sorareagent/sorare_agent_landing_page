@@ -3,5 +3,3 @@ dependency_overrides:
     path: packages/jaspr
   jaspr_builder:
     path: packages/jaspr_builder
-  jaspr_router:
-    path: packages/jaspr_router
