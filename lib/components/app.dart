@@ -1,6 +1,4 @@
 import 'package:jaspr/jaspr.dart' hide Color;
-import 'package:sorare_agent_landing_page/components/bulma/button.dart';
-import 'package:sorare_agent_landing_page/components/bulma/colors.dart';
 
 void main() {
   runApp(App());
@@ -13,11 +11,7 @@ class App extends StatelessComponent {
     yield SorareAgentText();
     yield Avatar();
     yield Description();
-    yield Button(
-      child: Text('Primary'),
-      color: Color.primary,
-      onPressed: () {},
-    );
+    yield FollowButton();
   }
 }
 
@@ -78,5 +72,44 @@ class Description extends StatelessComponent {
         child: Text(
           'Reporting the latest transfers for Sorare licensed clubs',
         ));
+  }
+}
+
+class FollowButton extends StatelessComponent {
+  const FollowButton({super.key});
+
+  @override
+  Iterable<Component> build(BuildContext context) sync* {
+    yield DomComponent(
+      tag: 'a',
+      classes: ['button', 'is-info'],
+      attributes: {'href': 'https://twitter.com/SorareAgent'},
+      styles: Styles.raw({
+        'position': 'absolute',
+        'display': 'flex',
+        'bottom': '48px',
+      }),
+      child: DomComponent(
+        tag: 'span',
+        children: [
+          DomComponent(
+            tag: 'span',
+            classes: ['icon'],
+            child: DomComponent(
+              tag: 'i',
+              classes: [
+                'fab',
+                'fa-twitter',
+              ],
+            ),
+          ),
+          DomComponent(
+            tag: 'span',
+            styles: Styles.raw({'margin-left': '2px'}),
+            child: Text('Follow @SorareAgent'),
+          )
+        ],
+      ),
+    );
   }
 }

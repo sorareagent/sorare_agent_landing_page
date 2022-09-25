@@ -316,6 +316,13 @@ packages:
       relative: true
     source: path
     version: "0.2.0"
+  jaspr_router:
+    dependency: "direct main"
+    description:
+      path: "packages/jaspr_router"
+      relative: true
+    source: path
+    version: "0.1.0"
   js:
     dependency: transitive
     description:
@@ -378,7 +385,7 @@ packages:
       name: meta
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.0"
+    version: "1.7.0"
   mime:
     dependency: transitive
     description:

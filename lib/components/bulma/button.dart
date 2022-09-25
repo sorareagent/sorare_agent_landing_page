@@ -1,3 +1,4 @@
+
 import 'package:jaspr/jaspr.dart' hide Color;
 
 import 'colors.dart';
@@ -14,6 +15,7 @@ class Button extends StatelessComponent {
     this.isLoading = false,
     this.isBlock = false,
     this.isDisabled = false,
+    this.styles,
     Key? key,
   }) : super(key: key);
 
@@ -24,6 +26,7 @@ class Button extends StatelessComponent {
   final bool isOutlined;
   final bool isLoading;
   final bool isDisabled;
+  final Map<String, String>? styles;
 
   @override
   Iterable<Component> build(BuildContext context) sync* {
@@ -37,9 +40,7 @@ class Button extends StatelessComponent {
         if (isBlock) 'block',
       ],
       attributes: {if (isDisabled) 'disabled': ''},
-      events: {
-        'click': (e) => onPressed(),
-      },
+      styles: styles != null ? Styles.raw(styles!) : null,
       child: child,
     );
   }
